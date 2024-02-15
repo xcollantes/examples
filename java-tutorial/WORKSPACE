@@ -1,0 +1,7 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "fancytext",
+    integrity = "sha256-sM/ZfAsO+FdKemOQUFP5rwJafweXWTb0MyIrxlQVyKA=",
+    urls = ["https://github.com/EngFlow/fancy-text/archive/refs/heads/main.zip"]
+)
