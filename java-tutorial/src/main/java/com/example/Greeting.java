@@ -14,6 +14,9 @@ public class Greeting {
         return formatter.format(text);
     }
 
+    /**
+     * Maintain fixed output to retain backwards compatibility.
+     */
     public static void sayHi() {
         System.out.println(convert("Hi!"));
     }
