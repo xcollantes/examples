@@ -1,0 +1,13 @@
+###############################################################################
+# Bazel now uses Bzlmod by default to manage external dependencies.
+# Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel.
+#
+# For more details, please check https://github.com/bazelbuild/bazel/issues/18958
+###############################################################################
+
+bazel_dep(name = "rules_jvm_external", version = "5.3")
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+maven.install(artifacts = ["junit:junit:4.13.2"])
+
+use_repo(maven, "maven")
