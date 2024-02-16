@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import com.engflow.fancytext.FancyFormatter;
 
 public class GreetingTest {
 
@@ -23,14 +22,14 @@ public class GreetingTest {
 
         for (Map.Entry<String,String> candidate: candidates.entrySet()) {
             assertEquals(
-                new FancyFormatter().convert(candidate.getKey()),
+                Greeting.convert(candidate.getKey()),
                 candidate.getValue()
             );
         }
     }
 
-    // @Test
-    // public void standardOut() {
-
-    // }
+    @Test
+    public void standardOut() {
+        
+    }
 }

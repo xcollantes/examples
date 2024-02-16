@@ -10,7 +10,6 @@ java_binary(
     ],
     deps = [
         ":greeter",
-        "@fancytext//fancy-text-main/src/java/com/engflow/fancytext:fancytext"
     ],
 )
 
@@ -20,4 +19,15 @@ java_library(
     deps = [
         "@fancytext//fancy-text-main/src/java/com/engflow/fancytext:fancytext",
     ],
+)
+
+java_test(
+    name = "greeter_test",
+    test_class = "com.example.GreetingTest",
+    srcs = glob(["test/main/java/com/example/*Test.java"]),
+    deps = [
+        "@maven//:junit_junit",
+        ":greeter",
+    ],
+    size = "small",
 )
