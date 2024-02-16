@@ -17,6 +17,7 @@ java_binary(
 java_library(
     name = "greeter",
     srcs = ["src/main/java/com/example/Greeting.java"],
+    deps = [
+        "@fancytext//fancy-text-main/src/java/com/engflow/fancytext:fancytext",
+    ],
 )
-
-

@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 3,
-  "moduleFileHash": "0e3e315145ac7ee7a4e0ac825e1c5e03c068ec1254dd42c3caaecb27e921dc4d",
+  "moduleFileHash": "b5946d1baf7898c5284d507e2a6956d32e0121961402e8316eda10cc947d7b56",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -23,10 +23,133 @@
       "repoName": "",
       "executionPlatformsToRegister": [],
       "toolchainsToRegister": [],
-      "extensionUsages": [],
+      "extensionUsages": [
+        {
+          "extensionBzlFile": "@rules_jvm_external//:extensions.bzl",
+          "extensionName": "maven",
+          "usingModule": "<root>",
+          "location": {
+            "file": "@@//:MODULE.bazel",
+            "line": 10,
+            "column": 22
+          },
+          "imports": {
+            "maven": "maven"
+          },
+          "devImports": [],
+          "tags": [
+            {
+              "tagName": "install",
+              "attributeValues": {
+                "artifacts": [
+                  "junit:junit:4.13.2"
+                ]
+              },
+              "devDependency": false,
+              "location": {
+                "file": "@@//:MODULE.bazel",
+                "line": 11,
+                "column": 14
+              }
+            }
+          ],
+          "hasDevUseExtension": false,
+          "hasNonDevUseExtension": true
+        }
+      ],
       "deps": {
+        "rules_jvm_external": "rules_jvm_external@5.3",
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_"
+      }
+    },
+    "rules_jvm_external@5.3": {
+      "name": "rules_jvm_external",
+      "version": "5.3",
+      "key": "rules_jvm_external@5.3",
+      "repoName": "rules_jvm_external",
+      "executionPlatformsToRegister": [],
+      "toolchainsToRegister": [],
+      "extensionUsages": [
+        {
+          "extensionBzlFile": "@rules_jvm_external//:non-module-deps.bzl",
+          "extensionName": "non_module_deps",
+          "usingModule": "rules_jvm_external@5.3",
+          "location": {
+            "file": "https://bcr.bazel.build/modules/rules_jvm_external/5.3/MODULE.bazel",
+            "line": 9,
+            "column": 32
+          },
+          "imports": {
+            "io_bazel_rules_kotlin": "io_bazel_rules_kotlin"
+          },
+          "devImports": [],
+          "tags": [],
+          "hasDevUseExtension": false,
+          "hasNonDevUseExtension": true
+        },
+        {
+          "extensionBzlFile": ":extensions.bzl",
+          "extensionName": "maven",
+          "usingModule": "rules_jvm_external@5.3",
+          "location": {
+            "file": "https://bcr.bazel.build/modules/rules_jvm_external/5.3/MODULE.bazel",
+            "line": 16,
+            "column": 22
+          },
+          "imports": {
+            "rules_jvm_external_deps": "rules_jvm_external_deps"
+          },
+          "devImports": [],
+          "tags": [
+            {
+              "tagName": "install",
+              "attributeValues": {
+                "name": "rules_jvm_external_deps",
+                "artifacts": [
+                  "com.google.auth:google-auth-library-credentials:1.17.0",
+                  "com.google.auth:google-auth-library-oauth2-http:1.17.0",
+                  "com.google.cloud:google-cloud-core:2.18.1",
+                  "com.google.cloud:google-cloud-storage:2.22.3",
+                  "com.google.code.gson:gson:2.10.1",
+                  "com.google.googlejavaformat:google-java-format:1.17.0",
+                  "com.google.guava:guava:32.0.0-jre",
+                  "org.apache.maven:maven-artifact:3.9.2",
+                  "software.amazon.awssdk:s3:2.20.78"
+                ],
+                "lock_file": "@rules_jvm_external//:rules_jvm_external_deps_install.json"
+              },
+              "devDependency": false,
+              "location": {
+                "file": "https://bcr.bazel.build/modules/rules_jvm_external/5.3/MODULE.bazel",
+                "line": 18,
+                "column": 14
+              }
+            }
+          ],
+          "hasDevUseExtension": false,
+          "hasNonDevUseExtension": true
+        }
+      ],
+      "deps": {
+        "bazel_skylib": "bazel_skylib@1.4.1",
+        "io_bazel_stardoc": "stardoc@0.5.3",
+        "bazel_tools": "bazel_tools@_",
+        "local_config_platform": "local_config_platform@_"
+      },
+      "repoSpec": {
+        "bzlFile": "@bazel_tools//tools/build_defs/repo:http.bzl",
+        "ruleClassName": "http_archive",
+        "attributes": {
+          "name": "rules_jvm_external~5.3",
+          "urls": [
+            "https://github.com/bazelbuild/rules_jvm_external/releases/download/5.3/rules_jvm_external-5.3.tar.gz"
+          ],
+          "integrity": "sha256-0x42m4VDIspQmOoSxp1xdd7ZcUNeVcGN2d1fKcxSSaw=",
+          "strip_prefix": "rules_jvm_external-5.3",
+          "remote_patches": {},
+          "remote_patch_strip": 0
+        }
       }
     },
     "bazel_tools@_": {
@@ -176,6 +299,68 @@
         "bazel_tools": "bazel_tools@_"
       }
     },
+    "bazel_skylib@1.4.1": {
+      "name": "bazel_skylib",
+      "version": "1.4.1",
+      "key": "bazel_skylib@1.4.1",
+      "repoName": "bazel_skylib",
+      "executionPlatformsToRegister": [],
+      "toolchainsToRegister": [
+        "//toolchains/unittest:cmd_toolchain",
+        "//toolchains/unittest:bash_toolchain"
+      ],
+      "extensionUsages": [],
+      "deps": {
+        "platforms": "platforms@0.0.7",
+        "bazel_tools": "bazel_tools@_",
+        "local_config_platform": "local_config_platform@_"
+      },
+      "repoSpec": {
+        "bzlFile": "@bazel_tools//tools/build_defs/repo:http.bzl",
+        "ruleClassName": "http_archive",
+        "attributes": {
+          "name": "bazel_skylib~1.4.1",
+          "urls": [
+            "https://github.com/bazelbuild/bazel-skylib/releases/download/1.4.1/bazel-skylib-1.4.1.tar.gz"
+          ],
+          "integrity": "sha256-uKFSeQF3QYCvx5iusoxGNL3M8ZxNmOe90c550f6aqtc=",
+          "strip_prefix": "",
+          "remote_patches": {},
+          "remote_patch_strip": 0
+        }
+      }
+    },
+    "stardoc@0.5.3": {
+      "name": "stardoc",
+      "version": "0.5.3",
+      "key": "stardoc@0.5.3",
+      "repoName": "stardoc",
+      "executionPlatformsToRegister": [],
+      "toolchainsToRegister": [],
+      "extensionUsages": [],
+      "deps": {
+        "bazel_skylib": "bazel_skylib@1.4.1",
+        "rules_java": "rules_java@7.1.0",
+        "bazel_tools": "bazel_tools@_",
+        "local_config_platform": "local_config_platform@_"
+      },
+      "repoSpec": {
+        "bzlFile": "@bazel_tools//tools/build_defs/repo:http.bzl",
+        "ruleClassName": "http_archive",
+        "attributes": {
+          "name": "stardoc~0.5.3",
+          "urls": [
+            "https://github.com/bazelbuild/stardoc/releases/download/0.5.3/stardoc-0.5.3.tar.gz"
+          ],
+          "integrity": "sha256-P9j+xN3sPGcL2BCQTi4zFwvt/hL5Ct+UNQgYS+RYyLs=",
+          "strip_prefix": "",
+          "remote_patches": {
+            "https://bcr.bazel.build/modules/stardoc/0.5.3/patches/module_dot_bazel.patch": "sha256-Lgpy9OCr0zBWYuHoyM1rJJrgxn23X/bwgICEF7XiEug="
+          },
+          "remote_patch_strip": 0
+        }
+      }
+    },
     "rules_cc@0.0.9": {
       "name": "rules_cc",
       "version": "0.0.9",
@@ -306,7 +491,7 @@
       "deps": {
         "platforms": "platforms@0.0.7",
         "rules_cc": "rules_cc@0.0.9",
-        "bazel_skylib": "bazel_skylib@1.3.0",
+        "bazel_skylib": "bazel_skylib@1.4.1",
         "rules_proto": "rules_proto@4.0.0",
         "rules_license": "rules_license@0.0.7",
         "bazel_tools": "bazel_tools@_",
@@ -363,7 +548,7 @@
       "toolchainsToRegister": [],
       "extensionUsages": [],
       "deps": {
-        "bazel_skylib": "bazel_skylib@1.3.0",
+        "bazel_skylib": "bazel_skylib@1.4.1",
         "rules_cc": "rules_cc@0.0.9",
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_"
@@ -477,7 +662,7 @@
       "toolchainsToRegister": [],
       "extensionUsages": [],
       "deps": {
-        "bazel_skylib": "bazel_skylib@1.3.0",
+        "bazel_skylib": "bazel_skylib@1.4.1",
         "zlib": "zlib@1.3",
         "rules_python": "rules_python@0.4.0",
         "rules_cc": "rules_cc@0.0.9",
@@ -568,7 +753,7 @@
         }
       ],
       "deps": {
-        "bazel_skylib": "bazel_skylib@1.3.0",
+        "bazel_skylib": "bazel_skylib@1.4.1",
         "platforms": "platforms@0.0.7",
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_"
@@ -582,37 +767,6 @@
             "https://github.com/bazelbuild/apple_support/releases/download/1.5.0/apple_support.1.5.0.tar.gz"
           ],
           "integrity": "sha256-miM41vja0yRPgj8txghKA+TQ+7J8qJLclw5okNW0gYQ=",
-          "strip_prefix": "",
-          "remote_patches": {},
-          "remote_patch_strip": 0
-        }
-      }
-    },
-    "bazel_skylib@1.3.0": {
-      "name": "bazel_skylib",
-      "version": "1.3.0",
-      "key": "bazel_skylib@1.3.0",
-      "repoName": "bazel_skylib",
-      "executionPlatformsToRegister": [],
-      "toolchainsToRegister": [
-        "//toolchains/unittest:cmd_toolchain",
-        "//toolchains/unittest:bash_toolchain"
-      ],
-      "extensionUsages": [],
-      "deps": {
-        "platforms": "platforms@0.0.7",
-        "bazel_tools": "bazel_tools@_",
-        "local_config_platform": "local_config_platform@_"
-      },
-      "repoSpec": {
-        "bzlFile": "@bazel_tools//tools/build_defs/repo:http.bzl",
-        "ruleClassName": "http_archive",
-        "attributes": {
-          "name": "bazel_skylib~1.3.0",
-          "urls": [
-            "https://github.com/bazelbuild/bazel-skylib/releases/download/1.3.0/bazel-skylib-1.3.0.tar.gz"
-          ],
-          "integrity": "sha256-dNVE2W9KW7Yw1GXKi7z+Ix41lOWq5X4e2/F6brPKJQY=",
           "strip_prefix": "",
           "remote_patches": {},
           "remote_patch_strip": 0
